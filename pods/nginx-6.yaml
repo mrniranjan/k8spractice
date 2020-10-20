@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: backend-app1
+   labels:
+      app: backend-app1
+      tier: tier1
+      function: backend
+      Geo: Europe
+spec:
+   containers:
+   - name: nginx
+     image: nginx
+     ports:
+       - containerPort: 8039
+       

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app1
+  labels:
+     app: app1
+     tier: tier0
+     function: front-end
+     Geo: APAC
+spec:
+   containers:
+   - name: nginx
+     image: nginx
+     ports:
+       - containerPort: 8080
+       

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-webapp
+  labels:
+      app: simple-webapp
+      tier: tier0
+      function: front-end
+      Geo: APAC
+spec:
+   containers:
+   - name: nginx
+     image: nginx
+     ports:
+       - containerPort: 8080
