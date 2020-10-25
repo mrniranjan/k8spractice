@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: foobar-testcases2
+  labels:
+    app: foobar-testcases
+    tier1: tier1
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    args:
+    - sleep
+    - "10000"

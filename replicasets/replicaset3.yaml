@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: foobarsecret-replicaset
+  label:
+    type: foobar-secret
+spec:
+  template:
+    metadata:
+      name: mysecret
+      labels:
+        type: foobar-secret
+    type: Opaque
+    data:
+      password: czMzbXNpNA==
+      username: amFuZQ==
+  replicas: 3
+  selector:
+    matchLabels:
+       type: foobar-secret

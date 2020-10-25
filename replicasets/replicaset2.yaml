@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: foobar-testcases-replicaset
+  label:
+     app: foobar-testcases
+     tier: tier1
+spec:
+  template:
+    metadata:
+      name: foobar-testcase-app
+      labels:
+        app: foobar-testcases
+        tier: tier1
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        args:
+        - sleep
+        - "10000"
+  replicas: 3
+  selector:
+     matchLabels:
+       tier: tier1

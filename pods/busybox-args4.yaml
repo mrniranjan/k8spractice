@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: box-app1
+  labels:
+    app: box1
+    tier: tier0
+    function: box
+    geo: apac
+spec:
+  containers:
+  - name: buxybox
+    image: busybox
+    args:
+    - sleep
+    - "100000"
+    
