@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hello
+  labels:
+    role: tier1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      role: tier2
+  template:
+    metadata:
+      labels:
+        role: tier2
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        resources:
+           requests:
+             memory: "150Mi"
+           limits:
+             memory: "200Mi"
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        restartPolicy: Always	  

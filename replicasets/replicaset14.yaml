@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hello
+  labels:
+    role: tier1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      role: tier1
+  template:
+    metadata:
+      labels:
+        role: tier1
+    spec:
+      containers:
+      - name: helloworld
+        image: openshift/hello-openshift
+        resources:
+          limits:
+            cpu: "1"
+          requests:
+            cpu: "1"
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        restartPolicy: Always
