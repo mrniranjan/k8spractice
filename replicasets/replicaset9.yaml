@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: a2
+  labels:
+    app: id2
+spec:
+  selector:
+    matchLabels:
+      app: id2
+  template:
+    metadata:
+      labels:
+        app: id2
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        args:
+        - sleep
+        - "1000"	

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+   name: frontend-1
+   labels:
+     tier: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+    matchExpressions:
+      - {key: tier, operator: In, values: [frontend]}
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: helloworld
+        image: openshift/hello-openshift
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      restartPolicy: Always
