@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-dep1
+  labels:
+    app: box-app1
+    type: busybox
+spec:
+  template:
+    metadata:
+      labels:
+        app: box1
+        type: busybox
+    spec:
+      containers:
+      - name: box
+        image: busybox
+        args:
+        - sleep
+        - "100000"
+  replicas: 3
+  selector:
+    matchLabels:
+      type: busybox
