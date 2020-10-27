@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: app-replica-6
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      geo: apac
+  template:
+    metadata:
+      labels:
+        geo: apac
+        tier: tier1
+        role: web
+    spec:
+      containers:
+      - name: nginx
+        image: nginx

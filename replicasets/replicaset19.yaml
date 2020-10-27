@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: app-replica-4
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      appType: sso
+  template:
+    metadata:
+      labels:
+        appType: sso
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
