@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-development
+  labels:
+    app: web-dev
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: web-dev
+      role: web
+  template:
+    metadata:
+      labels:
+        app: web-dev
+        role: web
+    spec:
+      containers:
+      - name: webserver
+        image: nginx        
