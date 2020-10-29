@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-prod
+  labels:
+    tier: web-prod
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: prod
+  template:
+    metadata:
+      labels:
+        tier: prod
+    spec:
+      containers:
+      - name: webserver
+        image: nginx
+  

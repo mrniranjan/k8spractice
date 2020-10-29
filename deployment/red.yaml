@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red
+  labels:
+   color: red
+spec:
+  Affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+            - key: color
+              operator: In
+              values:
+              - red
+  replicas: 2
+  selector:
+    matchLabels:
+      color: red
+  template:
+    metadata:
+      labels:
+        color: red
+    spec:
+      containers:
+      - name: redapp
+        image: nginx
+      tolerations:
+        - key: "color"
+          operator: "Equal"
+          value: "red"
+          effect: "NoSchedule"

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-dev1
+  labels:
+   tier: dep-dev1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: dev1
+  template:
+    metadata:
+      labels:
+        tier: dev1
+    spec:
+      containers:
+      - name: webserver
+        image: nginx

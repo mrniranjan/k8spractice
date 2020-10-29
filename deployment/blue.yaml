@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue
+  labels:
+   color: blue
+spec:
+  Affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+            - key: color
+              operator: In
+              values:
+              - blue
+  replicas: 2
+  selector:
+    matchLabels:
+      color: blue
+  template:
+    metadata:
+      labels:
+        color: blue
+    spec:
+      containers:
+      - name: blueapp
+        image: nginx
+      tolerations:
+        - key: "color"
+          operator: "Equal"
+          value: "blue"
+          effect: "NoSchedule"
