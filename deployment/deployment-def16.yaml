@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-db
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: postgres-db
+  template:
+    metadata:
+      labels:
+        app: postgres-db
+    spec:
+      containers:
+      - name: postgres-db
+        image: postgres:12.4
+        env:
+        - name: POSTGRES_PASSWORD
+          value: Secret123
+        - name: POSTGRES_USER
+          value: foo
+        - name: POSTGRES_DB
+          value: example           

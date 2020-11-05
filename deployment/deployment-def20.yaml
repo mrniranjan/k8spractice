@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      type: webapp
+  template:
+    metadata:
+      labels:
+        type: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: nginx

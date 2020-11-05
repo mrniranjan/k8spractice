@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mywebapp
+  labels:
+    type: frontend
+spec:
+   replicas: 3
+   selector:
+     matchLabels:
+       type: frontend
+   template:
+      metadata:
+        labels:
+          type: frontend
+      spec:
+        containers:
+        - name: webapp
+          image: nginx:1.18.0-perl
