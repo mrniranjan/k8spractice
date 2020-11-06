@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: abcapp
+data:
+  abc_var1: a
+  abc_var2: b
+  abc_var3: c
+immutable: true

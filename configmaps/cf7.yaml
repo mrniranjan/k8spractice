@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: special-conf1
+  namespace: default
+data:
+  special.how: very
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-conf1
+  namespace: default
+data:
+  log_level: INFO

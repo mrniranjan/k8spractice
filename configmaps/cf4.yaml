@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: appenv
+data:
+  app_krb_enable: "True"
+  app_dns_discover: "True"
+  app_oauth: "True"

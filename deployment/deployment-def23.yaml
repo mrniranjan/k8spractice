@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  app: confApp
+spec:
+  template:
+    metadata:
+      labels:
+        type: conf
+        role: web
+    spec:
+      containers:
+      - name: confApp
+        image: nginx
+        envFrom:
+          - configMapRef:
+              name: confenv
+  replicas: 3         
+  selectors:
+    matchLabels:
+      type: conf
+      role: web      

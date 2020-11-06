@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: confenv
+data:
+  app_var1: x1
+  app_var2: x2
+  app_var3: x3
+  app_var4: x4
+  app_var5: x5

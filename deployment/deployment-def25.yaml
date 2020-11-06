@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pnqapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      geo: pnq
+  template:
+    metadata:
+      labels:
+        geo: pnq
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        envFrom:
+        - configMapRef:
+            name: appenv
