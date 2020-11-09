@@ -1,0 +1,9 @@
+apiVersion: "autofs.example.com/v1"
+kind: Automount
+metadata:
+  name: prj1
+spec:
+  key: prj1
+  map: auto.home
+  automountInformation: -fstype=nfs,hard,intr,nodev,nosuid nfsserver.example.com:/export/prj1
+  

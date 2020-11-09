@@ -1,0 +1,30 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: automounts.autofs.example.com
+spec:
+  group: autofs.example.com
+  names:
+    plural: automounts
+    singular: automount
+    kind: Automount
+    shortnames:
+      - automount
+  scope: Namespaced
+  versions:
+    - name: v1
+      storage: true
+      served: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                key:
+                  type: string
+                map:
+                  type: string
+                automountInformation: 
+                  type: string

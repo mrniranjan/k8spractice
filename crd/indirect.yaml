@@ -1,0 +1,6 @@
+apiVersion: "autofs.example.com/v1"
+kind: AutoMountMap
+metadata:
+  name: indirect
+spec:
+  automountMap: indirect
