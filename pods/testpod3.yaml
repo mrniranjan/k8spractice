@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod2
+  labels:
+    app: frontend
+spec:
+   containers:
+   - name: nginx-pod2
+     image: quay.io/openshift-scale/nginx
+       

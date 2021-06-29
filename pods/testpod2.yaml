@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webserver
+  labels:
+     tier: tier0
+spec:
+  containers:
+  - name: httpd-pod1
+    image: quay.io/centos7/httpd-24-centos7
